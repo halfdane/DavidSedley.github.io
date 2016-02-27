@@ -4,8 +4,9 @@ branches:
     - sources
 env:
   global:
-    - GH_REF: github.com/halfdane/dsedley.git
-    - secure: D4Jl0u4ifWi80IMJepvbYdxH2EpA/+MC2Y1eAGwKx0GNCEk3gg5fGzrIGnnYw1I/5cAKkrGCr82qp4AOxjFmOXFEECpaBWSyaBEE4gIf/VNzCJEZ/Mwfgz6XEpTGKmW2gPNybzlBVWO2/WIK0hxRdStmrpBrfiSHYS9wHIpsxXLngpKN2ngIyPa4Vrd4/Lx/MOZNFW7eeB4x9QDTYrATTFkX9Rpq2QwRZNJ9xl1ScnlJe+F2A7fsPkW97+A+ueYYn3yO/ezGJyUr5En8D+PsLTUyYrnvVTgKSxC96Y6H8t9+b8MXrp1X9zsBX4ys8CPH+/SfTFZ4W4FT+RmJtkhC2XZFkQei7nO/M1qcOFtPQWDAR0kWrhA9fQVFNdPUmd/TFwlyiKT4qEw/R4GwMtMlBARSHGrAYQsjiEpuw5kshVJhJdrWcbYvt0/F5CflrX/PkLG7ovRxvlTwTQSkJ+/fXNJMJImXFiJXaeOtSRVZvdfWrfJYa2099WVaq/3rgHf3czkUh4BN4gnCURbeK0tNI3IcJtF9N0hXTf+xNafrlmwBE3mGLHVebaUJFmQZ4nYrsFc8uyY97A9yKTJm8eq1rL3Wb5F2NWQtx+oNVshJ3hOWXMcaxJsdhtDbfTEOlukCqvGTVnE1dORXi7M4MtrubUlABUeuTMpIF7SPpYHH4a8=
+    - GH_REF: github.com/DavisSedley/DavidSedley.github.io.git
+    - secure: "ttYPkpspfMXW/aM4T22BObL/qprD6qo2XVszL/mxJkCO4dnUaOJhFdStYry+FBBhg3lOqS6DhcPpkgMC6X2BBo5NX8cwegdrTMFrmtS97VuTqo/Z1R/hWiXHjmH/KnrmhwpZsLtYEg48J+VzfZXbTG6o+ggrSVRS8DLQYsMU9robTxse7qcCsrsviklewOHyXDDOKdsqGHJ8U4Ls/jadGiCEZ7RFWAcz8S76Fi9IZff6KOUIpyC+0cfMwLYywRs7GFg8Gt/4tovaHZsvVXKYCuvbaE0pS/mrveW5nNDNCpOrJRZErfcsV7ZeeVYS4TA8d/pFxEQPc3SEHlndVpaFRGqlotbqUuzhTQyldRu+YBCK09F5E+Nv55QYD7d6OT2YcIYYBv8S9tqgjc9xw5k5Ul/MZDZ1GzPx7cWUJ2SFMYGY8ae1+JjYt0A4z9rR2FUtbVKU/tsyxm5SvEl9XHvf7Z2Ep7reH5SB/K5VrNhtA1LUgcXqmO+crh+NSSaqMCS+oGu6b8P4rWliCdZCRwaHIIvVbwtvkAbm3J625VDha3EKhA9Y+4Ljf3elBMBtjU9z0njxT40EoMU8mD0qdRw1WOcHjsIIASMTuhu4J1TUj2ZEkb6ee3SvV+iieIj0z69D81YiWR9EZFl9UjTQ3z9KFThDaindhPI8C4YgIt6u1wU="
+
   matrix:
     - GOPATH=$TRAVIS_BUILD_DIR/gosrc
 install:
@@ -24,4 +25,4 @@ after_success:
   - git config user.name "Travis ci"
   - git add .
   - git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/halfdane/dsedley.git" master:gh-pages 2>&1 >/dev/null
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/DavidSedley/DavidSedley.github.io.git" master:master 2>&1 >/dev/null
