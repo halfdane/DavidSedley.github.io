@@ -1,28 +1,27 @@
 sudo: false
 branches:
   only:
-    - sources
+  - sources
 env:
   global:
-    - GH_REF: github.com/DavisSedley/DavidSedley.github.io.git
-    - secure: "F4CdZ3EoitE8D0sZSM0vLgEMHY0m3Mwcu0U6c0PY3Ix4ERnXbZle9gqcYkDkdl4to3YF77rI8FR6c745eetZytSMf9/wyMmxg9yXksA0EzWpvo3HlqaH7zcyYE/u7O4xGm9bJIF6wMBlxJ7z27xuwcB7ZURIuT4Mn6DMMFDxcXYQ6GrsKIWh1O1QZt6O/9w/UFLuK3tsLsTDEgjK+fjIAR1UHLds+uJCz/mD7r2y8vQYZZqi48vuCetpwCyRIND+Vd+0T5KmKcW+Pxan/e7C0cehJtUbjHGvCO5NEGrxE27ColdDGIdJFYaoKJmGocW1L3goKgr27Jwryz7qNDK+fIxevaBdWCowpVUK31DdvjENkSRxupwM+1X5aSdttt0ivMu82akb3TRpJAKH42YGepT/N6BUblONnja6khyUEzvVugbWWil6sBr3SoUwntvbHTRh9mK9Im5DMsm5IV2o++Pm9m3yBWBotV9s38V9HR50Jk4kulcVxaAgYaHtuz6YC+oydxHl6h+wvPAh2QugQizr2ZghLA2D1GMe5e1ZFI/C/7ar+ck8G+KwBiBqgfLub4vR1myWUnFtfmFSLieMtGjC/b6bhBx36S/55SeQUypndPQkOuueZeD72pAOrpOtfR/uBLXVj8AohDH129lptuhrVlCu4JpXQ8/7b75ibkM="
-
+  - GH_REF: github.com/DavidSedley/DavidSedley.github.io.git
+  - secure: R7XRWuSgaVhqjvi3ejZTOSte+YsP6ncLKQmqBzWy7dVTRWv9aFEPUibhRM218d33Fem4lld/AVpJzp4a40FqKCmvH+zZ81qNG0ux6c5IjUbKzCeUeBKGT3O6O3h/7OwudgFZVjGMIz/i/ctXikUoccCF6NozjhRtUNx2r5Tbi6K8Kx5zvhoPhie/MY6v+zZutLOWyyQjHgYcrgzjx6Spg38NP+JPHaZID0aS3BvF4uFg/6SS8/gE/O91O87nYc4yy0iGz0/fQb7GvCgoZADtpDy8Lbt4un4zQw/2JI8I7N6UOYHO7+PZJzRvGfl2EVNXxdt1edTY0n0OPse4zSXeujZWzS1ka+otU5Lb7bc/zQY+pOe09/n1FmafB/cnGnMV6DJMqXv1f2F4EDXOump9FGD0bjCzPGjVLSjRR6U7xX/Mdb0kZuQnuqQ2h2crz5lNJxobNDM0Sz89kzeNc797RYyC/M05Bl3ucVYrrgQEkTJIvlNBldTH7G4E7Ts5R7qXZZGinRnW1LAm+/MIS4/QWGZmgzt4RrTsPfeEJfBYT76lMOFpLYQEPYBCB2GDg6VSW7HE/qKS/qjPIdjcWbqC4V7fbY6z7DenUUviZplCgnJylPL5eLT/qTY7om6xebLKx31hIfFzkEIerA67ZeNeGHEozCbaxeECkxsjULHwPHw=
   matrix:
-    - GOPATH=$TRAVIS_BUILD_DIR/gosrc
+  - GOPATH=$TRAVIS_BUILD_DIR/gosrc
 install:
-  - mkdir -p "$TRAVIS_BUILD_DIR/gosrc"
-  - mkdir -p "$TRAVIS_BUILD_DIR/static"
-  - go get -v github.com/spf13/hugo
+- mkdir -p "$TRAVIS_BUILD_DIR/gosrc"
+- mkdir -p "$TRAVIS_BUILD_DIR/static"
+- go get -v github.com/spf13/hugo
 cache:
   directories:
-  - ${GOPATH}
-script: ${GOPATH}/bin/hugo --buildDrafts
+  - "${GOPATH}"
+script: "${GOPATH}/bin/hugo --buildDrafts"
 after_success:
-  - cd public
-  - ls
-  - git init
-  - git config user.email "travis@example.com"
-  - git config user.name "Travis ci"
-  - git add .
-  - git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
-  - git push --force --quiet "https://${GH_TOKEN}@github.com/DavidSedley/DavidSedley.github.io.git" master:master 2>&1 >/dev/null
+- cd public
+- ls
+- git init
+- git config user.email "travis@example.com"
+- git config user.name "Travis ci"
+- git add .
+- git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
+- git push --force --quiet "https://${GH_TOKEN}@github.com/DavidSedley/DavidSedley.github.io.git" master:master 2>&1 >/dev/null
