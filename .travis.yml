@@ -5,7 +5,6 @@ branches:
 env:
   global:
   - GH_REF: github.com/DavidSedley/DavidSedley.github.io.git
-  - secure: R7XRWuSgaVhqjvi3ejZTOSte+YsP6ncLKQmqBzWy7dVTRWv9aFEPUibhRM218d33Fem4lld/AVpJzp4a40FqKCmvH+zZ81qNG0ux6c5IjUbKzCeUeBKGT3O6O3h/7OwudgFZVjGMIz/i/ctXikUoccCF6NozjhRtUNx2r5Tbi6K8Kx5zvhoPhie/MY6v+zZutLOWyyQjHgYcrgzjx6Spg38NP+JPHaZID0aS3BvF4uFg/6SS8/gE/O91O87nYc4yy0iGz0/fQb7GvCgoZADtpDy8Lbt4un4zQw/2JI8I7N6UOYHO7+PZJzRvGfl2EVNXxdt1edTY0n0OPse4zSXeujZWzS1ka+otU5Lb7bc/zQY+pOe09/n1FmafB/cnGnMV6DJMqXv1f2F4EDXOump9FGD0bjCzPGjVLSjRR6U7xX/Mdb0kZuQnuqQ2h2crz5lNJxobNDM0Sz89kzeNc797RYyC/M05Bl3ucVYrrgQEkTJIvlNBldTH7G4E7Ts5R7qXZZGinRnW1LAm+/MIS4/QWGZmgzt4RrTsPfeEJfBYT76lMOFpLYQEPYBCB2GDg6VSW7HE/qKS/qjPIdjcWbqC4V7fbY6z7DenUUviZplCgnJylPL5eLT/qTY7om6xebLKx31hIfFzkEIerA67ZeNeGHEozCbaxeECkxsjULHwPHw=
   matrix:
   - GOPATH=$TRAVIS_BUILD_DIR/gosrc
 install:
@@ -24,4 +23,4 @@ after_success:
 - git config user.name "Travis ci"
 - git add .
 - git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
-- git push --force --quiet "https://${GH_TOKEN}@github.com/DavidSedley/DavidSedley.github.io.git" master:master 2>&1 >/dev/null
+- git push --force --quiet "https://${PUSH_TOKEN}@github.com/DavidSedley/DavidSedley.github.io.git" master:master 2>&1 >/dev/null
