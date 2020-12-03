@@ -1,4 +1,4 @@
-baseurl = "http://DavidSedley.github.io/"
+baseurl = "http://halfdane.github.io/test"
 languageCode = "en-us"
 # theme = "hyde"
 theme = "bootie-docs"
